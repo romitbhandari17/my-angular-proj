@@ -1,0 +1,56 @@
+<div class="container-fluid">
+  <form [formGroup]="campaignForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label for="campaignName">Campaign Name</label>
+      <input type="text" class="form-control" id="campaignName" formControlName="campaignName" [ngClass]="{'is-invalid':submitted && f.campaignName.errors}" placeholder="Enter Campaign Name">
+      <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+    </div>
+    <div class="form-group">
+      <label for="campaignDesc">Campaign Description</label>
+      <textarea class="form-control" id="campaignDesc" formControlName="campaignDesc" rows="3" [ngClass]="{'is-invalid':submitted && f.campaignDesc.errors}"></textarea>
+    </div>
+    <div class="form-group">
+      <label for="campaignFile">File Input</label>
+      <input type="file" class="form-control-file" id="campaignFile" formControlName="campaignFile" [ngClass]="{'is-invalid':submitted && f.campaignFile.errors}">
+    </div>
+    <div class="form-group">
+      <label for="status">Status</label>
+      <select class="form-control" id="status" formControlName="status" [ngClass]="{'is-invalid':submitted && f.status.errors}">
+        <option value="1">Active</option>
+        <option value="2">Draft</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="industries">Industries</label>
+      <select multiple class="form-control" id="industries" formControlName="industries" [ngClass]="{'is-invalid':submitted && f.industries.errors}">
+        <option>Agriculture</option>
+        <option>Textiles</option>
+        <option>Sports</option>
+        <option>Mining</option>
+      </select>
+    </div>
+    <div class="form-check form-check-inline">
+      <input class="form-check-input" type="radio" formControlName="salesOwner" [ngClass]="{'is-invalid':submitted && f.salesOwner.errors}" id="sales1" value="1">
+      <label class="form-check-label" for="sales1">1</label>
+    </div>
+    <div class="form-check form-check-inline">
+      <input class="form-check-input" type="radio" formControlName="salesOwner" [ngClass]="{'is-invalid':submitted && f.salesOwner.errors}"  id="sales2" value="2">
+      <label class="form-check-label" for="sales2">2</label>
+    </div>
+    <div class="form-check form-check-inline">
+      <input class="form-check-input" type="radio" formControlName="salesOwner" id="sales3" [ngClass]="{'is-invalid':submitted && f.salesOwner.errors}"  value="3" >
+      <label class="form-check-label" for="sales3">3</label>
+    </div>
+    <div class="form-check">
+      <input class="form-check-input" type="checkbox" value="" id="usOnly" formControlName="usOnly" [ngClass]="{'is-invalid':submitted && f.usOnly.errors}">
+      <label class="form-check-label" for="usOnly">
+        US Only
+      </label>
+    </div>
+    <div class="form-group">
+        <button [disabled]="loading" class="btn btn-primary">Register</button>
+        <img *ngIf="loading" src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA==" />
+        <a [routerLink]="['/campaigns']" class="btn btn-link">Cancel</a>
+    </div>
+  </form>
+</div>

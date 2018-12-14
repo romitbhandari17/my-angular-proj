@@ -1,0 +1,21 @@
+a.create-campaign:hover{
+    cursor:pointer;
+}
+
+.right-nav-item{
+    float:right;
+    right:5px;
+    position:absolute;
+    cursor:pointer;
+}
+
+.user-drop-down{
+    background:#e8e8e8;
+    position:absolute;top:56px;right:1px;z-index:100;
+}
+
+.drop-down-ul{
+    padding:8px;
+    margin:0px;
+    cursor:pointer;
+}

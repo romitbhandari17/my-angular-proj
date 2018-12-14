@@ -1,0 +1,7 @@
+:host >>> div.container-fluid > .container {
+    margin-right: 0px !important;
+    margin-left: 0px !important;
+    padding-left:0px !important;
+    padding-top:15px;
+    padding-bottom:15px;
+}

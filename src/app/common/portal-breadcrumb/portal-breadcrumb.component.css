@@ -1,0 +1,87 @@
+.bc-wrapper {
+    height: 52px;
+    color: #2c2c2c;
+    position: relative;
+    padding-right: 275px;
+    padding-left: 20px;
+    background: #fcfcfc;
+    background: -webkit-linear-gradient(#fafafa, #ffffff);
+    background: -o-linear-gradient(#fafafa, #ffffff);
+    background: -moz-linear-gradient(#fafafa, #ffffff);
+    background: linear-gradient(#fafafa, #ffffff);
+}
+
+.portal-breadcrumb-container {
+    height: 100%;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.buttons {
+    height: 47px;
+    position: relative;
+}
+
+.buttons > .border {
+    position: absolute;
+    top: 0px;
+    right: 20px;
+    left: 20px;
+    height: 1px;
+    border-top: 1px solid #eeeeee;
+}
+
+.portal-breadcrumb-container > .breadcrumb-panel > .breadcrumb-outer > ul {
+    list-style-type: none;
+    padding:0px;
+    margin: 0px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+.portal-breadcrumb-container > .breadcrumb-panel > .breadcrumb-outer > ul > li {
+    padding:0px;
+    margin: 0px;
+    display: inline-block;
+    vertical-align:top;
+    color: #333;
+    cursor:default;
+    overflow:hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    line-height: 52px;
+}
+
+.portal-breadcrumb-container > .breadcrumb-panel > .breadcrumb-outer > ul > li.active {
+    color: #0395c9;
+}
+
+.portal-breadcrumb-container > .breadcrumb-panel > .breadcrumb-outer > ul > li.active:hover {
+    color: #02719b;
+    cursor:pointer;
+}
+
+@media(max-width:767px) {
+    .portal-breadcrumb-container {
+        font-size: 16px;
+        height: 40px;
+        line-height: 38px;
+    }
+
+    .bc-wrapper {
+        padding-right: 145px;
+    }
+}
+
+@media(max-width:480px) {
+    .portal-breadcrumb-container {
+        font-size: 14px;
+    }
+}
+
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+    .bc-wrapper {
+        padding-right: 270px;
+    }
+}

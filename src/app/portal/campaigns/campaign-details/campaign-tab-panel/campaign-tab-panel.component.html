@@ -1,0 +1,19 @@
+<ngb-tabset (tabChange)="setActiveTab($event)">
+  <ngb-tab title="Dashboard" id="Dashboard">
+    <ng-template ngbTabContent>
+      <app-campaign-dashboard></app-campaign-dashboard>
+    </ng-template>
+  </ngb-tab>
+  <ngb-tab id="Companies">
+    <ng-template ngbTabTitle>Companies</ng-template>
+    <ng-template ngbTabContent>
+      <app-campaign-content [selectedTab]="selectedTab"></app-campaign-content>
+    </ng-template>
+  </ngb-tab>
+  <ngb-tab id="Contacts">
+    <ng-template ngbTabTitle>Contacts</ng-template>
+    <ng-template ngbTabContent>
+      <app-campaign-content [selectedTab]="selectedTab"></app-campaign-content>
+    </ng-template>
+  </ngb-tab>
+  </ngb-tabset>

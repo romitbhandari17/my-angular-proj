@@ -1,0 +1,50 @@
+<!--<app-data-table [header]="header" [data]="data" [rowsPerPage]="rowsPerPage"></app-data-table>-->
+<div class="clearfix outer-div">
+    <div class="col-sm-7 div-left">
+        <div class="input-wrapper">
+            <div class="ib-search-wrapper">
+                <i style="margin-top:6px;margin-left:6px" class="fa fa-search"></i>
+            </div>
+            <input type="text" class="padding-inner-ctrl"  name="" id="" placeholder="Campaign Name">
+        </div>
+        <button type="button" class="btn btn-primary search-button" >Search</button>
+    </div>
+    <div class="col-sm-5 div-right"><span>Status:</span>
+        <select class="padding-inner-select"><option value="1">Active</option><option value="2">Draft</option></select>
+    </div>
+</div>
+<img *ngIf="loading" src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA==" />
+<table *ngIf="!loading" class="table table-striped" [mfData]="data" #mf="mfDataTable" [mfRowsOnPage]="5">
+    <thead>
+    <tr>
+
+        <th  *ngFor="let i of header" [style.width]="i.width">
+            <mfDefaultSorter by="{{i.name}}">{{i.label}}</mfDefaultSorter>
+        </th>
+        <!--<th style="width: 50%">
+            <mfDefaultSorter by="email">Email</mfDefaultSorter>
+        </th>
+        <th style="width: 10%">
+            <mfDefaultSorter by="age">Age</mfDefaultSorter>
+        </th>
+        <th style="width: 20%">
+            <mfDefaultSorter by="city">City</mfDefaultSorter>
+        </th>-->
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let item of mf.data" (click)="goToCampaignDetails(item)">
+        <td *ngFor="let in of item| keyvalue">{{in.value}}</td>
+        <!--<td>{{item.email}}</td>
+        <td class="text-right">{{item.age}}</td>
+        <td>{{item.city | uppercase}}</td>-->
+    </tr>
+    </tbody>
+    <tfoot>
+    <tr>
+        <td colspan="4">
+            <mfBootstrapPaginator [rowsOnPageSet]="[5,10,25]"></mfBootstrapPaginator>
+        </td>
+    </tr>
+    </tfoot>
+</table>

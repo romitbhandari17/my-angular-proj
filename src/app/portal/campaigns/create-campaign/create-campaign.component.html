@@ -1,4 +1,4 @@
-<div class="container-fluid">
+<div class="container-fluid create-campaign" >
   <form [formGroup]="campaignForm" (ngSubmit)="onSubmit()">
     <div class="form-group">
       <label for="campaignName">Campaign Name</label>
@@ -31,15 +31,15 @@
     </div>
     <div class="form-check form-check-inline">
       <input class="form-check-input" type="radio" formControlName="salesOwner" [ngClass]="{'is-invalid':submitted && f.salesOwner.errors}" id="sales1" value="1">
-      <label class="form-check-label" for="sales1">1</label>
+      <label class="form-check-label" for="sales1">Rakesh</label>
     </div>
     <div class="form-check form-check-inline">
       <input class="form-check-input" type="radio" formControlName="salesOwner" [ngClass]="{'is-invalid':submitted && f.salesOwner.errors}"  id="sales2" value="2">
-      <label class="form-check-label" for="sales2">2</label>
+      <label class="form-check-label" for="sales2">Aman</label>
     </div>
     <div class="form-check form-check-inline">
       <input class="form-check-input" type="radio" formControlName="salesOwner" id="sales3" [ngClass]="{'is-invalid':submitted && f.salesOwner.errors}"  value="3" >
-      <label class="form-check-label" for="sales3">3</label>
+      <label class="form-check-label" for="sales3">Sumesh</label>
     </div>
     <div class="form-check">
       <input class="form-check-input" type="checkbox" value="" id="usOnly" formControlName="usOnly" [ngClass]="{'is-invalid':submitted && f.usOnly.errors}">

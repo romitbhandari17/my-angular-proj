@@ -1,0 +1,16 @@
+<form  [formGroup]="form" *ngIf="!hideFilter">    
+  <div class="outer-div form-group" style="background:#D3D3D3;border:1px solid grey;padding:10px;z-index:20">
+    <div class="form-check form-check-inline">
+      <input style="cursor:pointer" class="form-check-input" type="radio" formControlName="salesOwner"   value="1">
+      <label class="form-check-label" >Rakesh</label>
+    </div>
+    <div class="form-check form-check-inline">
+      <input style="cursor:pointer" class="form-check-input" type="radio" formControlName="salesOwner"   value="2">
+      <label class="form-check-label" >Aman</label>
+    </div>
+    <div class="form-check form-check-inline">
+      <input style="cursor:pointer" class="form-check-input" type="radio" formControlName="salesOwner" value="3" >
+      <label class="form-check-label" >Sumesh</label>
+    </div>
+  </div>
+</form>    

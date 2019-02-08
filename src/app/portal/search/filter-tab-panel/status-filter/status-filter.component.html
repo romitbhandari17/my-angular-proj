@@ -1,0 +1,9 @@
+ <form [formGroup]="form" *ngIf="!hideFilter">   
+    <div class="outer-div form-group" style="background:#D3D3D3;border:1px solid grey;padding:10px;z-index:20">
+      <label for="status">Status:</label>
+      <select class="form-control" id="status" formControlName="status">
+        <option value="1" >Active</option>
+        <option value="2">Draft</option>
+      </select>
+    </div>
+ </form>

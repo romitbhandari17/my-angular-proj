@@ -9,14 +9,14 @@ import { ActivatedRoute, Router } from '@angular/router';
 export class CampaignDashboardComponent implements OnInit {
 
   constructor(private activatedRoute: ActivatedRoute) { }
-  private orderId:number;
+  public orderId:number;
   private paramsSubs: any;
 
   ngOnInit() {
     this.paramsSubs = this.activatedRoute.params
         .subscribe((params) => {
             this.orderId = +params['id'];
-            console.log('orderId in dashboard=', this.orderId);
+            //console.log('orderId in dashboard=', this.orderId);
             //this.loadDashboardDetails(this.orderId);
         });
   }

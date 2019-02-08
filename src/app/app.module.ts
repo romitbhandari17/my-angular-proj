@@ -9,7 +9,7 @@ import { CreateCampaignComponent } from './portal/campaigns/create-campaign/crea
 import { CampaignListingComponent } from './portal/campaigns/campaign-listing/campaign-listing.component';
 import { PortalComponent } from './portal/portal.component';
 import {DataTableModule} from "angular-6-datatable";
-import { PortalBreadcrumbComponent } from './common/portal-breadcrumb/portal-breadcrumb.component';
+import { PBreadcrumbComponent } from './common/p-breadcrumb/p-breadcrumb.component';
 import {BreadcrumbsModule} from "ng6-breadcrumbs";
 import { RoutingService } from './_services/routing.service';
 import { DataTableComponent } from './common/data-table/data-table.component';
@@ -28,6 +28,21 @@ import { AlertService, AuthenticationService, UserService } from './_services';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { fakeBackendProvider } from './_helpers';
 import { CampaignService } from './portal/campaigns/campaign.service';
+import { SearchComponent } from './portal/search/search.component';
+import { TopicSearchFilterComponent } from './portal/search/topic-search-filter/topic-search-filter.component';
+import { SearchTabPanelComponent } from './portal/search/search-tab-panel/search-tab-panel.component';
+import { FilterTabPanelComponent } from './portal/search/filter-tab-panel/filter-tab-panel.component';
+import { SearchResultsComponent } from './portal/search/search-results/search-results.component';
+import { SearchService } from './portal/search/search.service';
+import { EmployeeSizeFilterComponent } from './portal/search/filter-tab-panel/employee-size-filter/employee-size-filter.component';
+import { IndustryFilterComponent } from './portal/search/filter-tab-panel/industry-filter/industry-filter.component';
+import { PModal } from './common/p-modal/p-modal.component';
+import { PDataTableComponent } from './common/p-data-table/p-data-table.component';
+import { PipeDataTablePipe } from './_pipes/pipe-data-table.pipe';
+import { PMultiselectListComponent } from './common/p-multiselect-list/p-multiselect-list.component';
+import { StatusFilterComponent } from './portal/search/filter-tab-panel/status-filter/status-filter.component';
+import { SalesownerFilterComponent } from './portal/search/filter-tab-panel/salesowner-filter/salesowner-filter.component';
+import { SaveAsCampaignComponent } from './portal/search/save-as-campaign/save-as-campaign.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +52,7 @@ import { CampaignService } from './portal/campaigns/campaign.service';
     NavBarComponent,
     FooterComponent,
     PortalComponent,
-    PortalBreadcrumbComponent,
+    PBreadcrumbComponent,
     DataTableComponent,
     CampaignDetailsComponent,
     CampaignTabPanelComponent,
@@ -46,7 +61,21 @@ import { CampaignService } from './portal/campaigns/campaign.service';
     HomeComponent,
     LoginComponent,
     RegisterComponent,
-    AlertComponent
+    AlertComponent,
+    SearchComponent,
+    TopicSearchFilterComponent,
+    SearchTabPanelComponent,
+    FilterTabPanelComponent,
+    SearchResultsComponent,
+    EmployeeSizeFilterComponent,
+    IndustryFilterComponent,
+    PModal,
+    PDataTableComponent,
+    PipeDataTablePipe,
+    PMultiselectListComponent,
+    StatusFilterComponent,
+    SalesownerFilterComponent,
+    SaveAsCampaignComponent
   ],
   imports: [
     BrowserModule,
@@ -64,6 +93,7 @@ import { CampaignService } from './portal/campaigns/campaign.service';
               AuthenticationService,
               UserService,
               CampaignService,
+              SearchService,
               { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
               { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
               // provider used to create fake backend

@@ -29,4 +29,8 @@ export class NavBarComponent implements OnInit {
     }
   }
 
+  showSearch(){
+    this.routingService.showView('search');
+  }
+
 }

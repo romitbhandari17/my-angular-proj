@@ -1,0 +1,29 @@
+<div *ngIf="!hideWidget" class="outer-div" [style.height.px]="heightOuterDiv" [style.width.px]="widthOuterDiv">
+  <div class="outer-div-left" >
+    <div class="div-top-left">
+      Available {{label}}: <a style="cursor:pointer" (click)="moveAllRight(itemsLeft, itemsRight)">Select All</a>
+    </div>
+    <div class="div-container-list" *ngIf="type=='list'" [style.height.px]="heightInnerDiv">
+      <ul>
+        <li *ngFor="let item of itemsLeft" style="cursor:pointer" (click)="moveToRight(item)">{{item.name}}</li>
+      </ul>
+    </div>
+    <div class="div-container-box" *ngIf="type=='box'" [style.min-height.px]="60">
+        <span class="span-box" *ngFor="let item of itemsLeft" (click)="moveToRight(item)">{{item.name}}</span>
+    </div>
+    <i class="fa fa-exchange"></i>
+  </div>
+  <div class="outer-div-right" style="position:relative;float:left;width:50%">
+    <div class="div-top-right" style="margin:10px">
+       Selected {{label}}: <a style="cursor:pointer" (click)="moveAllLeft()">Clear All</a>
+    </div>
+     <div class="div-container-list" *ngIf="type=='list'" [style.height.px]="heightInnerDiv">
+      <ul>
+        <li *ngFor="let item of itemsRight" style="cursor:pointer" (click)="moveToLeft(item)">{{item.name}}</li>
+      </ul>
+    </div>
+    <div class="div-container-box" *ngIf="type=='box'" [style.min-height.px]="60">
+      <span class="span-box" *ngFor="let item of itemsRight" (click)="moveToLeft(item)">{{item.name}}</span>
+    </div>
+  </div>
+</div>

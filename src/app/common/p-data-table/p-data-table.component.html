@@ -1,0 +1,41 @@
+<div class="clearfix">
+  <img *ngIf="loading" src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA==" />
+  <div  *ngIf="!loading" class="clearfix div-parent">
+      <div #divOuter (scroll)="getScroll($event)" class="div-outer">
+      <table class="fixed_header" style="width:100%;">
+        <thead #tableHead>
+          <tr >           
+            <!--<td *ngFor="let key of c">{{key}}: {{c[key]}}</td> [attr.colspan]="h.colspan ? h.colspan : 1" -->
+            <th  *ngFor="let h of headerArray">{{h.label}}
+              <div class="th-bottom-border-fix"></div>
+              <div class="th-right-border-fix"></div>
+            </th>
+          </tr>
+        </thead>    
+        <tbody>
+            <tr style="cursor:pointer" *ngFor="let d of data|pipeDataTable" (click)="goToDetails(d)">
+              <!--<td *ngFor="let key of d|pipeDataTable:headerArr">{{key}}</td> [attr.colspan]="h.colspan ? h.colspan : 1"-->
+              <td  *ngFor="let h of headerArray" (click)=" h.action == true ? clickAction(d, h.name) :  false ">{{h.action== true? h.image : d[h.name]}}</td>
+            </tr>
+        </tbody>
+      </table>
+      </div>
+      <div class="clearfix div-page-outer">
+        <div class="pull-left div-page-inner">{{firstRecord}} to {{lastRecord}} of {{recordsCount}}</div>
+        <nav aria-label="Page navigation example">
+          <ul class="pagination margin-0" >
+            <li class="page-item"><a class="page-link"  (click)="pageFirst()">First</a></li>
+            <li class="page-item"><a class="page-link"  (click)="pagePrev()">Prev</a></li>
+            <div class="form-group margin-0">
+              <select class="form-control" id="sel1" style="width:80px" [(ngModel)]="selectPage" (change)="pageChange($event.target.value)">
+                <option [selected]="item === 1" *ngFor="let item of range(totalPages)">{{ item }}</option>
+                <!--<option *ngFor="let page of totalPages;index as i">{{i}}</option>-->
+              </select>
+            </div>
+            <li class="page-item"><a class="page-link" (click)="pageNext()">Next</a></li>
+            <li class="page-item"><a class="page-link" (click)="pageLast()">Last</a></li>
+          </ul>
+        </nav>
+      </div>
+  </div>
+</div>

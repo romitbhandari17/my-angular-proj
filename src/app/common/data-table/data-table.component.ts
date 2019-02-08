@@ -14,8 +14,8 @@ export class DataTableComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    console.log(this.data);
-    console.log(this.rowsPerPage);
+    // console.log(this.data);
+    // console.log(this.rowsPerPage);
   }
 
 }

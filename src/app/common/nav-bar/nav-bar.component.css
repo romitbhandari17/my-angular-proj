@@ -1,4 +1,4 @@
-a.create-campaign:hover{
+a.create-campaign:hover,a.search:hover{
     cursor:pointer;
 }
 

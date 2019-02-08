@@ -41,7 +41,7 @@ export class CreateCampaignComponent implements OnInit {
 
     // stop here if form is invalid
     if (this.campaignForm.invalid) {
-      console.log('form invalid');
+      //console.log('form invalid');
       this.loading = false;
       return;
     }

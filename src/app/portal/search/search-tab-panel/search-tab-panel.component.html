@@ -1,0 +1,34 @@
+<div class="container clearfix" style="width:100%;height:40px;position:relative;border:1px solid yellow">
+  <div class="output-tabs col-sm-6" style="float:left;padding-left:0px;">
+    <ngb-tabset class="tabset" (tabChange)="setActiveTab($event)">
+    <ngb-tab title="Dashboard" id="Dashboard">
+      <ng-template ngbTabContent>
+       
+      </ng-template>
+    </ngb-tab>
+    <ngb-tab id="Companies">
+      <ng-template ngbTabTitle>Companies</ng-template>
+      <ng-template ngbTabContent>
+       
+      </ng-template>
+    </ngb-tab>
+    <ngb-tab id="Contacts">
+      <ng-template ngbTabTitle>Contacts</ng-template>
+      <ng-template ngbTabContent>
+    
+      </ng-template>
+    </ngb-tab>
+    </ngb-tabset>
+  </div>
+  <div class="side-buttons col-sm-6 clearfix" style="float:left;text-align:right;padding-right:0px;">
+    <div class="buttons-wrapper clearfix">
+      <div class="filter-wrapper" style="float:left;padding-left:75px;">
+        <button type="button" class="btn btn-search" (click)="onClick($event,'filter')">Filter</button>
+        <i class="fas fa-filter"></i>
+      </div>
+      <button type="button" class="btn btn-search"  (click)="onClick($event, 'reset')">Reset</button>
+      <button type="button" class="btn btn-primary btn-search" (click)="onClick($event, 'save')">Save this filter</button>
+      <button type="button" class="btn btn-primary btn-search" (click)="onClick($event, 'saveAsCampaign')">Save As a Campaign</button>
+    </div>
+  </div>
+</div>

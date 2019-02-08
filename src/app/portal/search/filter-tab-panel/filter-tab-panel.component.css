@@ -1,0 +1,11 @@
+.hide-filter {
+    display: none !important;
+}
+
+.tabset{
+    position: absolute;
+    top: 0px;
+    left: 15px;
+    border: 1px solid black;
+    height:40px;
+}

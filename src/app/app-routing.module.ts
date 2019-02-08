@@ -8,6 +8,7 @@ import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { AuthGuard } from './_guards';
+import { SearchComponent } from './portal/search/search.component';
 
 //This is my case
 const routes: Routes = [
@@ -18,24 +19,26 @@ const routes: Routes = [
     {
         path: 'campaigns', component: PortalComponent, canActivate: [AuthGuard], children: [
             { path: '', component: CampaignListingComponent },
-            { path: 'details/:id/:breadcrumb', component: CampaignDetailsComponent },
+            // { path: 'details/:id/:breadcrumb', component: CampaignDetailsComponent },
+            { path: 'details/:id', component: CampaignDetailsComponent },
             { path: 'create', component: CreateCampaignComponent,
-                data: { breadcrumb: 'Create'} 
+                //data: { breadcrumb: 'Create'} 
             },
             //{ path: 'edit/:id', component: CreateCampaignTabPanelComponent },
-        ],
-        data: {
-            breadcrumb: 'Campaigns'
-        }
+        ]
+        // ,
+        // data: {
+        //     breadcrumb: 'Campaigns'
+        // }
     },
     {
-        path: 'insights', component: PortalComponent, canActivate: [AuthGuard], children: [
-            //{ path: '', component: IntegrationsComponent },
-            //{ path: 'rest-api', component: RestApiComponent}
+        path: 'search', component: PortalComponent, canActivate: [AuthGuard], children: [
+            { path: '', component: SearchComponent },
+            { path: 'edit/:id', component: SearchComponent },
         ],
-        data: {
-            breadcrumb: 'Insights'
-        }
+        // data: {
+        //     breadcrumb: 'Searches'
+        // }
     },
     //{path: 'departments/:id', component: CampaignDetailsComponent},
     {path: "**", redirectTo: "/campaigns", pathMatch:"full", canActivate: [AuthGuard] }

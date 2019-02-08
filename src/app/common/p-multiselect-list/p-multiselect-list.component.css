@@ -1,0 +1,35 @@
+div .outer-div-left{
+    float:left;
+    padding-right:3%;
+    width:50%;
+    position:relative;
+}
+
+div.outer-div{
+    position:absolute;
+    z-index:20;
+    top:100%;
+    left:0px;
+    border:1px solid #D3D3D3;
+    background:white;
+}
+
+div.div-top-left{
+    margin:10px;
+}
+
+.fa-exchange{
+    position:absolute;top:80px;right:6px;
+}
+
+div.div-container-box{
+    overflow-y:auto;overflow-x:hidden;background:#DEEAFA;margin:10px;border:1px solid #D3D3D3;
+}
+
+div.div-container-list{
+    overflow-y:auto;border:1px solid #D3D3D3;background:#DEEAFA;margin:10px;
+}
+
+span.span-box{
+    cursor:pointer;margin:10px;padding:3px 15px;display:inline-block;border:1px solid #D3D3D3;background:#E2E2E2;
+}

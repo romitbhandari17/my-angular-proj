@@ -1,0 +1,5 @@
+<div style="border:1px solid black;width:100%;height:50px">
+    <ul>
+        <li  *ngFor="let link of links;let i=index" class="breadcrumb-item" style="border:1px solid grey;cursor:pointer;" [innerHTML]="link.html" (click)="i == 2 ? false: showView(link.view,link.param)" ></li>
+    </ul>
+</div>

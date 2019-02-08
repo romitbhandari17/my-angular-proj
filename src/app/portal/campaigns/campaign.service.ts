@@ -15,4 +15,8 @@ export class CampaignService {
     getAllCampaigns() {
         return this.http.get<Campaign[]>(`/campaigns`);
     }
+
+    getCampaignById(id: number) {
+        return this.http.get(`/campaign/` + id);
+    }
 }

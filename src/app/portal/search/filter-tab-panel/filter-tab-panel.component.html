@@ -1,0 +1,27 @@
+<div [ngClass]="{ 'clearfix' : true , 'container' :true }" class="clearfix container" style="width:100%;height:40px;position:relative;border:1px solid red;">
+  <ngb-tabset [ngClass]="{'hide-filter': !hideFilterTab, 'tabset':true}" (tabChange)="setActiveTab($event)" (click)="stopPropagation($event)">
+  <ngb-tab title="Status" id="statusFilter">
+    <ng-template ngbTabContent>
+      <status-filter [masterForm]="masterForm" [reset]="resetFilter" [hideFilter]="hideFilter" (formSubmit)="onFilterSubmit($event)"></status-filter>
+    </ng-template>
+  </ngb-tab>
+  <ngb-tab>
+    <ng-template ngbTabTitle>Industry</ng-template>
+    <ng-template ngbTabContent>
+      <industry-filter [masterForm]="masterForm" [reset]="resetFilter"  [hideFilter]="hideFilter" (formSubmit)="onFilterSubmit($event)"></industry-filter>
+    </ng-template>
+  </ngb-tab>
+  <ngb-tab>
+    <ng-template ngbTabTitle>Employee Size</ng-template>
+    <ng-template ngbTabContent>
+      <employee-size-filter [masterForm]="masterForm" [reset]="resetFilter"  [hideFilter]="hideFilter" (formSubmit)="onFilterSubmit($event)"></employee-size-filter>
+    </ng-template>
+  </ngb-tab>
+    <ngb-tab>
+    <ng-template ngbTabTitle>Sales Owner</ng-template>
+    <ng-template ngbTabContent>
+      <salesowner-filter [masterForm]="masterForm" [reset]="resetFilter"  [hideFilter]="hideFilter" (formSubmit)="onFilterSubmit($event)"></salesowner-filter>
+    </ng-template>
+  </ngb-tab>
+  </ngb-tabset>
+</div>

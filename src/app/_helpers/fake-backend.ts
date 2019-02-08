@@ -14,7 +14,6 @@ export class FakeBackendInterceptor implements HttpInterceptor {
 
         let campaigns: any[] = JSON.parse(localStorage.getItem('campaigns')) || [];
 
-
         // wrap in delayed observable to simulate server api call
         return of(null).pipe(mergeMap(() => {
 
@@ -137,11 +136,50 @@ export class FakeBackendInterceptor implements HttpInterceptor {
                 return of(new HttpResponse({ status: 200 }));
             }
 
+            // get campaign by id
+            if (request.url.match(/\/campaign\/\d+$/) && request.method === 'GET') {
+                // check for fake auth token in header and return user if valid, this security is implemented server side in a real application
+                if (request.headers.get('Authorization') === 'Bearer fake-jwt-token') {
+                    // find cmapaign by id in cmapaigns array
+                    let urlParts = request.url.split('/');
+                    let id = parseInt(urlParts[urlParts.length - 1]);
+                    let matchedCampaigns = campaigns.filter(campaign => { return campaign.id === id; });
+                    let campaign = matchedCampaigns.length ? matchedCampaigns[0] : null;
+
+                    return of(new HttpResponse({ status: 200, body: campaign }));
+                } else {
+                    // return 401 not authorised if token is null or invalid
+                    return throwError({ error: { message: 'Unauthorised' } });
+                }
+            }
+
             // get campaigns
             if (request.url.endsWith('/campaigns') && request.method === 'GET') {
                 // check for fake auth token in header and return users if valid, this security is implemented server side in a real application
                 if (request.headers.get('Authorization') === 'Bearer fake-jwt-token') {
                     return of(new HttpResponse({ status: 200, body: campaigns }));
+                } else {
+                    // return 401 not authorised if token is null or invalid
+                    return throwError({ error: { message: 'Unauthorised' } });
+                }
+            }
+
+            // get companies
+            if (request.url.endsWith('/getCompanies') && request.method === 'GET') {
+                // check for fake auth token in header and return users if valid, this security is implemented server side in a real application
+                if (request.headers.get('Authorization') === 'Bearer fake-jwt-token') {
+                    return of(new HttpResponse({ status: 200, body: campaigns }));
+                } else {
+                    // return 401 not authorised if token is null or invalid
+                    return throwError({ error: { message: 'Unauthorised' } });
+                }
+            }
+
+            // get Contacts
+            if (request.url.endsWith('/getContacts') && request.method === 'GET') {
+                // check for fake auth token in header and return users if valid, this security is implemented server side in a real application
+                if (request.headers.get('Authorization') === 'Bearer fake-jwt-token') {
+                    return of(new HttpResponse({ status: 200, body: users }));
                 } else {
                     // return 401 not authorised if token is null or invalid
                     return throwError({ error: { message: 'Unauthorised' } });

@@ -1,0 +1,7 @@
+<topic-search-filter (topicSearchOnLoad)="getTopicSearchDetails($event)"></topic-search-filter>
+<search-tab-panel (TabChangeClick)="tabClicked($event)" (searchButtonClick)="SearchPanelButtonClick($event)"></search-tab-panel>
+<filter-tab-panel [masterForm]="masterForm" [resetFilter]="resetFilter" [hideFilterTab]="hideFilterTab" (formSubmit)="onFilterDataForm($event)"></filter-tab-panel>
+<!--<search-results (pageChangeClick)="getSearchResultsRecords($event)" [tableReset]="tableReset" [data]="searchResults" [recordsCount]="recordsCount" [headerArray]="headerArray" [loading]="loading" [rowsPerPage]="rowsPerPage" ></search-results>-->
+<app-p-data-table (clickActionEvent)="dataTableAction($event)" (goToDetailsClick)="goToCampaignDetails($event)" *ngIf="showResults" (pageChangeClick)="getSearchResultsRecords($event)" [tableReset]="tableReset" [data]="searchResults" [recordsCount]="recordsCount" [headerArray]="headerArray" [loading]="loading" [rowsPerPage]="rowsPerPage" ></app-p-data-table>
+<save-as-campaign #saveCampaign [showSaveAsCampaign]="showSaveAsCampaign" (hideDialogClick)="hideDialog($event)" (formSubmit)="onFilterDataForm($event)" (onSubmitClick)="onSubmit($event)"></save-as-campaign>
+<p-modal #pmodal></p-modal>

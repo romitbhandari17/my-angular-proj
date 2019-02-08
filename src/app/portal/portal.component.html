@@ -1,9 +1,10 @@
 <!--<div #breadcrumb>
     <app-portal-breadcrumb></app-portal-breadcrumb>
 </div>-->
-<app-nav-bar></app-nav-bar>
-<breadcrumb [allowBootstrap]="true"></breadcrumb>
-<div class="container-fluid" #container>
+<app-nav-bar #navbar></app-nav-bar>
+<!--<breadcrumb [allowBootstrap]="true" *ngIf="showBreadCrumb"></breadcrumb>-->
+<p-breadcrumb [links]="breadcrumbEvent.links" #breadcrumb></p-breadcrumb>
+<div class="" #container style="position:relative;border:1px solid grey;width:100%">
     <router-outlet></router-outlet>
 </div>
 
